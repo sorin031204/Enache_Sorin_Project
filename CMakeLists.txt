@@ -3,4 +3,6 @@ project(Enache_Sorin_Project)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Enache_Sorin_Project main.cpp)
+add_executable(Enache_Sorin_Project main.cpp
+        Note.h
+        Note.cpp)
