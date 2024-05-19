@@ -5,13 +5,11 @@
 #ifndef ENACHE_SORIN_PROJECT_NOTE_H
 #define ENACHE_SORIN_PROJECT_NOTE_H
 #endif  //ENACHE_SORIN_PROJECT_NOTE_H
-#include <iostream>
-
-using namespace std;
+#include "iostream"
 
 class Note {
 public:
-    Note(std::string Title, std::string Text);
+    Note();
 
     bool LockNote(const Note &note);
 
