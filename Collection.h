@@ -12,18 +12,20 @@
 class Collection {
 public:
 
-    Collection(std::string collectionName, int dimension) : CollectionName(collectionName), Dimension(dimension),
+    Collection(std::string collectionName, int dimension) : Dimension(dimension),CollectionName(collectionName),
                                                             Size(0) {
-        Notes = new Note[dimension]();
+        Notes = new Note[dimension];
     }
 
     ~Collection() {
         delete[] Notes;
     }
 
+    void AddNote(const Note& note);
+
 private:
     std::string CollectionName;
-    Note *Notes;
+    Note* Notes;
     int Size;
     int Dimension;
 };
