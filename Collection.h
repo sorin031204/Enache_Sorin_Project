@@ -14,12 +14,13 @@ public:
 
     Collection(std::string collectionName, int dimension) : Dimension(dimension),CollectionName(collectionName),
                                                             Size(0) {
-        Notes = new Note[dimension];
     }
 
     ~Collection() {
         delete[] Notes;
     }
+
+    virtual void ReadNote(const Note& note) const;
 
     void AddNote(const Note& note);
 

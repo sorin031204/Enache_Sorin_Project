@@ -9,13 +9,13 @@
 
 class Note {
 public:
-    Note();
+    Note(std::string Title , std::string Text);
 
-    bool LockNote(const Note &note);
+    bool LockNote();
 
-    bool UnLockNote(const Note &note);
+    bool UnLockNote();
 
-    bool StatusNote(const Note &note) const;
+    bool StatusNote() const;
 
     std::string getTitle() const {
         return Title;
@@ -32,4 +32,5 @@ private:
     std::string Title;
     std::string Text;
     bool Lock;
+    bool important;
 };
