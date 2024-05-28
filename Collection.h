@@ -8,25 +8,23 @@
 #endif //ENACHE_SORIN_PROJECT_COLLECTION_H
 #include <iostream>
 #include "Note.h"
-
+#include "vector"
 class Collection {
 public:
 
-    Collection(std::string collectionName, int dimension) : Dimension(dimension),CollectionName(collectionName),
+    Collection(std::string collectionName, int dimension) : Dimension(dimension), CollectionName(collectionName),
                                                             Size(0) {
+        Notes.reserve(Dimension);
+
     }
 
-    ~Collection() {
-        delete[] Notes;
-    }
+    virtual void ReadNote(const Note &note) const;
 
-    virtual void ReadNote(const Note& note) const;
-
-    void AddNote(const Note& note);
+    void AddNote(const Note &note);
 
 private:
     std::string CollectionName;
-    Note* Notes;
+    std::vector<Note> Notes;
     int Size;
     int Dimension;
 };

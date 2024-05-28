@@ -15,6 +15,6 @@ void Collection::AddNote(const Note& note) {
 }
 
 void Collection::ReadNote(const Note &note) const{
-    std::cout << note.getTitle() << std::endl;
-    std::cout << note.getText() << std::endl;
+    std::cout << note.getTitle() << " : " <<note.getText() << std::endl;
+
 }

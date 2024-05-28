@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ncurses.h>
+#include "vector"
 
 #include "Collection.h"
 //Classi che rappresentano note (es. Bear / Evernote). Ogni nota è composta da titolo e testo, può essere bloccata per evitarne
@@ -9,11 +9,17 @@
 //Reformat Code  press ⌘Сmd ⌥Opt L.
 
 int main() {
-    Note *nota = new Note("title" , "testo");
-    std::cout << nota->getText();
+    Note *nota = new Note("title", "testo");
+    //std::cout << nota->getText() << std::endl;
     nota->LockNote();
+    //std::cout << nota->StatusNote() << std::endl;
     nota->UnLockNote();
-    std::cout << nota->StatusNote();
+    //nota->modifyText(*nota, "nuovo testo");
+    //std::cout << nota->getText();
+
+    Collection *collection = new Collection("CollezioneProva" , 20);
+    collection->AddNote( *nota);
+    collection->ReadNote(*nota);
 
     return 0;
 }
