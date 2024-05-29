@@ -7,23 +7,31 @@
 
 using namespace std;
 
-Note::Note(std::string Title , std::string Text) : Title(Title), Text(Text), Lock(false) {}
+Note::Note(std::string Title, std::string Text) : Title(Title), Text(Text), Lock(false) , Important(false) {}
 
-bool Note::LockNote() {
-    return Lock = true;
+void Note::LockNote() {
+     Lock = true;
 }
 
-bool Note::UnLockNote() {
-    return Lock = false;
+void Note::UnLockNote() {
+     Lock = false;
 }
 
 bool Note::StatusNote() const {
     return Lock;
 }
 
-void Note::modifyText(Note &note, std::string newText) const {
+void Note::modifyText(Note &note, std::string NewText) const {
     if (!StatusNote())
-        note.Text = newText;
+        note.Text = NewText;
+    else {
+        std::cout << "Cannot modify a locked note." << std::endl;
+    }
+}
+
+void Note::modifyTitle(Note &note, std::string NewTitle) const {
+    if (!StatusNote())
+        note.Title = NewTitle;
     else {
         std::cout << "Cannot modify a locked note." << std::endl;
     }

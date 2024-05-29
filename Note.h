@@ -5,17 +5,30 @@
 #ifndef ENACHE_SORIN_PROJECT_NOTE_H
 #define ENACHE_SORIN_PROJECT_NOTE_H
 #endif  //ENACHE_SORIN_PROJECT_NOTE_H
+
 #include "iostream"
 
 class Note {
 public:
-    Note(std::string Title , std::string Text);
+    Note(std::string Title, std::string Text);
 
-    bool LockNote();
+    ~Note(){
+        if (Lock)
+            std::cout << "Cannot destroy a locked note." << std::endl;
+        else {
+            std::cout << "destroying the note." << std::endl;
+            delete &Title;
+            delete &Text;
+        }
+    }
 
-    bool UnLockNote();
+    void LockNote();
+
+    void UnLockNote();
 
     bool StatusNote() const;
+
+    bool IsImportant() const;
 
     std::string getTitle() const {
         return Title;
@@ -27,10 +40,12 @@ public:
 
     void modifyText(Note &note, std::string) const;
 
+    void modifyTitle(Note &note, std::string) const;
+
 
 private:
     std::string Title;
     std::string Text;
     bool Lock;
-    bool important;
+    bool Important;
 };
