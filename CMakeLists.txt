@@ -10,8 +10,8 @@ add_executable(Enache_Sorin_Project main.cpp
         Note.cpp
         Collection.h
         Collection.cpp
-        ImportantCollection.h
-        ImportantCollection.cpp)
+        Observer.h
+        Subject.h)
 target_link_libraries(Enache_Sorin_Project ${CURSES_LIBRARIES})
 
 

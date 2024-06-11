@@ -19,13 +19,13 @@ int main() {
     //std::cout << nota->getText();
 
 
-    Collection *collection = new Collection("CollezioneProva" , 1);
-    //collection->AddNote( *nota);
-    collection->AddNote( *nota2);
+    Collection *collection = new Collection("CollezioneProva", 1);
+    collection->AddNote(*nota);
+    collection->AddNote(*nota2);
 
-    collection->ReadNote(*nota);
+    collection->ReadNotes();
     delete nota;
-    collection->ReadNote(*nota);
+
 
     return 0;
 }
