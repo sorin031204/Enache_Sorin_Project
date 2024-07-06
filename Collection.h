@@ -5,14 +5,16 @@
 #ifndef ENACHE_SORIN_PROJECT_COLLECTION_H
 #define ENACHE_SORIN_PROJECT_COLLECTION_H
 
-#endif //ENACHE_SORIN_PROJECT_COLLECTION_H
-
 #include <iostream>
 #include "Note.h"
 #include "vector"
 #include "Observer.h"
 #include "list"
 #include "Subject.h"
+
+#endif //ENACHE_SORIN_PROJECT_COLLECTION_H
+
+
 
 class Collection : public Subject {
 public:
@@ -29,12 +31,15 @@ public:
 
     virtual void RemoveObserver(Observer *o) override;
 
+    int getSize() const{
+        return Size;
+    }
 
     virtual void ReadNotes();
 
     void AddNote(const Note &note);
 
-    void RemoveNote(Note &note);
+    void RemoveNote(const Note &note);
 
 private:
     std::string CollectionName;

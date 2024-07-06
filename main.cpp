@@ -1,7 +1,6 @@
 #include <iostream>
-#include "vector"
+#include "Display.h"
 
-#include "Collection.h"
 //Classi che rappresentano note (es. Bear / Evernote). Ogni nota è composta da titolo e testo, può essere bloccata per evitarne
 //cancellazione/modifica e fa parte di una collezione specificata con nome.
 //Può anche far parte di una collezione di note importanti oltre che di una collezione specifica.
@@ -11,20 +10,24 @@
 int main() {
     Note *nota = new Note("title", "text");
     Note *nota2 = new Note("titolo", "testo");
+
     //std::cout << nota->getText() << std::endl;
-    nota->LockNote();
-    std::cout << nota->StatusNote() << std::endl;
+    //nota->LockNote();
+    //std::cout << nota->StatusNote() << std::endl;
     //nota->UnLockNote();
     //nota->modifyText(*nota, "nuovo testo");
     //std::cout << nota->getText();
 
 
-    Collection *collection = new Collection("CollezioneProva", 1);
+    Collection *collection = new Collection("CollezioneProva", 2);
+    Display count(collection);
     collection->AddNote(*nota);
     collection->AddNote(*nota2);
 
     collection->ReadNotes();
-    delete nota;
+    collection->RemoveNote(*nota);
+    std::cout << "spazio" << std::endl;
+    collection->ReadNotes();
 
 
     return 0;

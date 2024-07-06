@@ -25,17 +25,17 @@ bool Note::IsImportant() const {
     return Important;
 }
 
-void Note::modifyText(Note &note, std::string NewText) const {
-    if (Lock)
-        note.Text = NewText;
+void Note::modifyText(const std::string &newText) {
+    if (!Lock)
+        Text = newText;
     else {
         std::cout << "Cannot modify a locked note." << std::endl;
     }
 }
 
-void Note::modifyTitle(Note &note, std::string NewTitle) const {
-    if (Lock)
-        note.Title = NewTitle;
+void Note::modifyTitle(const std::string &newTitle) {
+    if (!Lock)
+        Title = newTitle;
     else {
         std::cout << "Cannot modify a locked note." << std::endl;
     }

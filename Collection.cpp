@@ -7,7 +7,7 @@
 
 void Collection::ReadNotes(){
     for (const auto it : Notes)
-        std::cout << it.getTitle() << std::endl << it.getText() << std::endl;
+        std::cout << it.getTitle() << ":" << it.getText() << std::endl;
 }
 
 void Collection::AddObserver(Observer *o) {
@@ -34,12 +34,15 @@ void Collection::AddNote(const Note &note) {
     NotifyObservers();
 }
 
-void Collection::RemoveNote(Note &note) {
-    for (std::vector<Note>::iterator it = Notes.begin(); it != Notes.end();)
+void Collection::RemoveNote(const Note &note) {
+    for (auto it = Notes.begin(); it != Notes.end();)
         if (!note.StatusNote()) {
             *it = note;
             it = Notes.erase(it);
+
         }
+    Size--;
     NotifyObservers();
 }
+
 
