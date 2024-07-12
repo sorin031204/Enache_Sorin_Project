@@ -25,11 +25,11 @@ public:
 
     }
 
-    virtual void NotifyObservers() override;
+    void NotifyObservers() override;
 
-    virtual void AddObserver(Observer *o) override;
+    void AddObserver(Observer *o) override;
 
-    virtual void RemoveObserver(Observer *o) override;
+    void RemoveObserver(Observer *o) override;
 
     int getSize() const{
         return Size;

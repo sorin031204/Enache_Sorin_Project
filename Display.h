@@ -10,7 +10,7 @@
 
 class Display : public Observer {
 public:
-    Display(Collection *collection) : collection(collection) {
+    explicit Display(Collection *collection) : collection(collection) {
         collection->AddObserver(this);
     }
 

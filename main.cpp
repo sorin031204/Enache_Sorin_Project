@@ -8,6 +8,8 @@
 //Reformat Code  press ⌘Сmd ⌥Opt L.
 
 int main() {
+
+
     Note *nota = new Note("title", "text");
     Note *nota2 = new Note("titolo", "testo");
 
@@ -18,17 +20,13 @@ int main() {
     //nota->modifyText(*nota, "nuovo testo");
     //std::cout << nota->getText();
 
-
-    Collection *collection = new Collection("CollezioneProva", 2);
+    auto *collection = new Collection("CollezioneProva", 2);
     Display count(collection);
     collection->AddNote(*nota);
     collection->AddNote(*nota2);
 
     collection->ReadNotes();
     collection->RemoveNote(*nota);
-    std::cout << "spazio" << std::endl;
-    collection->ReadNotes();
-
 
     return 0;
 }
