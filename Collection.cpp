@@ -27,22 +27,16 @@ void Collection::AddNote(const Note &note) {
     if (Size < Dimension) {
         Notes.push_back(note);
         Size++;
-        std::cout << "the note " << note.getTitle() << " has been added" << std::endl;
-    } else {
-        std::cout << "collection is full" << std::endl;
     }
     NotifyObservers();
 }
 
 void Collection::RemoveNote(const Note &note) {
-    for (auto it = Notes.begin(); it != Notes.end();)
-        if (!note.StatusNote()) {
-            *it = note;
-            it = Notes.erase(it);
-
-        }
-    Size--;
-    NotifyObservers();
+    auto it = std::find_if(Notes.begin(), Notes.end(), [&note](const Note& n) { return n.getTitle() == note.getTitle(); });
+    if (it != Notes.end() && !note.StatusNote()) {
+        Notes.erase(it);
+        Size--;
+        NotifyObservers();
+    }
 }
-
 

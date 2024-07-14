@@ -10,23 +10,25 @@
 int main() {
 
 
-    Note *nota = new Note("title", "text");
+    Note *nota1 = new Note("title", "text");
     Note *nota2 = new Note("titolo", "testo");
 
     //std::cout << nota->getText() << std::endl;
-    //nota->LockNote();
-    //std::cout << nota->StatusNote() << std::endl;
+    nota1->LockNote();
+    std::cout << "stato nota" << nota1->StatusNote() << std::endl;
     //nota->UnLockNote();
     //nota->modifyText(*nota, "nuovo testo");
     //std::cout << nota->getText();
 
     auto *collection = new Collection("CollezioneProva", 2);
     Display count(collection);
-    collection->AddNote(*nota);
+    collection->AddNote(*nota1);
     collection->AddNote(*nota2);
 
     collection->ReadNotes();
-    collection->RemoveNote(*nota);
+    collection->RemoveNote(*nota1);
+    collection->RemoveNote(*nota2);
+
 
     return 0;
 }

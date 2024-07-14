@@ -14,8 +14,6 @@
 
 #endif //ENACHE_SORIN_PROJECT_COLLECTION_H
 
-
-
 class Collection : public Subject {
 public:
 
@@ -33,6 +31,10 @@ public:
 
     int getSize() const{
         return Size;
+    }
+
+    int getDimesion() const{
+        return Dimension;
     }
 
     virtual void ReadNotes();
