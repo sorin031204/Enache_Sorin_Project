@@ -4,7 +4,9 @@
 
 #ifndef ENACHE_SORIN_PROJECT_DISPLAY_H
 #define ENACHE_SORIN_PROJECT_DISPLAY_H
+
 #include "Collection.h"
+
 #endif //ENACHE_SORIN_PROJECT_DISPLAY_H
 
 
@@ -19,7 +21,8 @@ public:
     }
 
     void Update() override {
-        std::cout <<"Display: una nota è stata rimossa/aggiunta , il numero di note adesso è:"<< collection->getSize() << std::endl;
+        std::cout << "Display: una nota è stata rimossa/aggiunta , il numero di note adesso è:" << collection->getSize()
+                  << std::endl;
     }
 
 private:

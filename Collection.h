@@ -29,11 +29,11 @@ public:
 
     void RemoveObserver(Observer *o) override;
 
-    int getSize() const{
+    int getSize() const {
         return Size;
     }
 
-    int getDimesion() const{
+    int getDimesion() const {
         return Dimension;
     }
 

@@ -7,11 +7,11 @@
 
 
 TEST(NoteTest, CreateNote) {
-Note note("Test Title", "Test Text");
-EXPECT_EQ(note.getTitle(), "Test Title");
-EXPECT_EQ(note.getText(), "Test Text");
-EXPECT_FALSE(note.StatusNote());
-EXPECT_FALSE(note.IsImportant());
+    Note note("Test Title", "Test Text");
+    EXPECT_EQ(note.getTitle(), "Test Title");
+    EXPECT_EQ(note.getText(), "Test Text");
+    EXPECT_FALSE(note.StatusNote());
+    EXPECT_FALSE(note.IsImportant());
 }
 
 TEST(NoteTest, ModifyNote) {

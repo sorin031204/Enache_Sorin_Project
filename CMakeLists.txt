@@ -16,6 +16,6 @@ find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
 add_library(core ${SOURCE_FILES})
-target_link_libraries(${CMAKE_PROJECT_NAME} core )
+target_link_libraries(${CMAKE_PROJECT_NAME} core)
 
 

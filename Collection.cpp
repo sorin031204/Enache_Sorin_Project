@@ -5,8 +5,8 @@
 #include "Collection.h"
 #include "iostream"
 
-void Collection::ReadNotes(){
-    for (const auto it : Notes)
+void Collection::ReadNotes() {
+    for (const auto it: Notes)
         std::cout << it.getTitle() << ":" << it.getText() << std::endl;
 }
 
@@ -32,7 +32,8 @@ void Collection::AddNote(const Note &note) {
 }
 
 void Collection::RemoveNote(const Note &note) {
-    auto it = std::find_if(Notes.begin(), Notes.end(), [&note](const Note& n) { return n.getTitle() == note.getTitle(); });
+    auto it = std::find_if(Notes.begin(), Notes.end(),
+                           [&note](const Note &n) { return n.getTitle() == note.getTitle(); });
     if (it != Notes.end() && !note.StatusNote()) {
         Notes.erase(it);
         Size--;

@@ -4,16 +4,17 @@
 
 #ifndef ENACHE_SORIN_PROJECT_NOTE_H
 #define ENACHE_SORIN_PROJECT_NOTE_H
-#include "iostream"
-#endif  //ENACHE_SORIN_PROJECT_NOTE_H
 
+#include "iostream"
+
+#endif  //ENACHE_SORIN_PROJECT_NOTE_H
 
 
 class Note {
 public:
     Note(std::string Title, std::string Text);
 
-    ~Note(){}
+    ~Note() {}
 
     void LockNote();
 
@@ -31,9 +32,9 @@ public:
         return Text;
     }
 
-    void modifyText(const std::string& newText) ;
+    void modifyText(const std::string &newText);
 
-    void modifyTitle(const std::string& newTitle) ;
+    void modifyTitle(const std::string &newTitle);
 
 
 private:
