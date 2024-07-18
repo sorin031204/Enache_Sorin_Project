@@ -10,8 +10,8 @@ TEST(NoteTest, CreateNote) {
     Note note("Test Title", "Test Text");
     EXPECT_EQ(note.getTitle(), "Test Title");
     EXPECT_EQ(note.getText(), "Test Text");
-    EXPECT_FALSE(note.StatusNote());
-    EXPECT_FALSE(note.IsImportant());
+    EXPECT_FALSE(note.isLocked());
+    EXPECT_FALSE(note.isImportant());
 }
 
 TEST(NoteTest, ModifyNote) {
@@ -21,13 +21,13 @@ TEST(NoteTest, ModifyNote) {
     EXPECT_EQ(note.getTitle(), "New Title");
     EXPECT_EQ(note.getText(), "New Text");
 
-    note.LockNote();
+    note.lockNote();
     note.modifyTitle("Another Title");
     note.modifyText("Another Text");
     EXPECT_EQ(note.getTitle(), "New Title");
     EXPECT_EQ(note.getText(), "New Text");
 
-    note.UnLockNote();
+    note.unlockNote();
     note.modifyText("Another Text");
     note.modifyTitle("Another Title");
     EXPECT_EQ(note.getText(), "Another Text");

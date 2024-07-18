@@ -9,20 +9,19 @@
 
 #endif  //ENACHE_SORIN_PROJECT_NOTE_H
 
-
 class Note {
 public:
     Note(std::string Title, std::string Text);
 
     ~Note() {}
 
-    void LockNote();
+    void lockNote();
 
-    void UnLockNote();
+    void unlockNote();
 
-    bool StatusNote() const;
+    bool isLocked() const;
 
-    bool IsImportant() const;
+    bool isImportant() const;
 
     std::string getTitle() const {
         return Title;
@@ -35,7 +34,6 @@ public:
     void modifyText(const std::string &newText);
 
     void modifyTitle(const std::string &newTitle);
-
 
 private:
     std::string Title;

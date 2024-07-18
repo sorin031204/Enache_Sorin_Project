@@ -20,14 +20,13 @@ public:
     Collection(std::string collectionName, int dimension) : Dimension(dimension), CollectionName(collectionName),
                                                             Size(0) {
         Notes.reserve(Dimension);
-
     }
 
-    void NotifyObservers() override;
+    void notifyObservers() override;
 
-    void AddObserver(Observer *o) override;
+    void addObserver(Observer *o) override;
 
-    void RemoveObserver(Observer *o) override;
+    void removeObserver(Observer *o) override;
 
     int getSize() const {
         return Size;
@@ -37,11 +36,13 @@ public:
         return Dimension;
     }
 
-    virtual void ReadNotes();
+    virtual void readNotes();
 
-    void AddNote(const Note &note);
+    void addNote(const Note &note);
 
-    void RemoveNote(const Note &note);
+    void removeNote(const Note &note);
+
+    void updateNote(const std::string& searchTitle, const std::string& newTitle, const std::string& newText);
 
 private:
     std::string CollectionName;

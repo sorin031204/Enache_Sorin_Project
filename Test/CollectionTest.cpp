@@ -12,25 +12,20 @@ TEST(CollectionTest, AddAndRemoveNote) {
     Note *note2 = new Note("Title2", "Text2");
     Note *note3 = new Note("Title3", "Text3");
 
-
-    collection->AddNote(*note1);
+    collection->addNote(*note1);
     EXPECT_EQ(collection->getSize(), 1);
 
-
-    collection->AddNote(*note2);
+    collection->addNote(*note2);
     EXPECT_EQ(collection->getSize(), 2);
 
-
-    collection->AddNote(*note3);
+    collection->addNote(*note3);
     EXPECT_EQ(collection->getSize(), 2);
 
-
-    collection->RemoveNote(*note1);
+    collection->removeNote(*note1);
     EXPECT_EQ(collection->getSize(), 1);
 
-
-    note2->LockNote();
-    collection->RemoveNote(*note2);
+    note2->lockNote();
+    collection->removeNote(*note2);
     EXPECT_EQ(collection->getSize(), 1);
 }
 

@@ -11,13 +11,14 @@
 
 
 class Display : public Observer {
+
 public:
     explicit Display(Collection *collection) : collection(collection) {
-        collection->AddObserver(this);
+        collection->addObserver(this);
     }
 
     ~Display() {
-        collection->RemoveObserver(this);
+        collection->removeObserver(this);
     }
 
     void Update() override {

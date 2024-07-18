@@ -7,13 +7,15 @@
 #endif //ENACHE_SORIN_PROJECT_SUBJECT_H
 
 class Subject {
+
 public:
+
     virtual ~Subject() {}
 
-    virtual void AddObserver(Observer *o) = 0;
+    virtual void addObserver(Observer *o) = 0;
 
-    virtual void RemoveObserver(Observer *o) = 0;
+    virtual void removeObserver(Observer *o) = 0;
 
-    virtual void NotifyObservers() = 0;
+    virtual void notifyObservers() = 0;
 
 };

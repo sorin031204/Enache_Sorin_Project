@@ -9,19 +9,19 @@ using namespace std;
 
 Note::Note(std::string Title, std::string Text) : Title(Title), Text(Text), Lock(false), Important(false) {}
 
-void Note::LockNote() {
+void Note::lockNote() {
     Lock = true;
 }
 
-void Note::UnLockNote() {
+void Note::unlockNote() {
     Lock = false;
 }
 
-bool Note::StatusNote() const {
+bool Note::isLocked() const {
     return Lock;
 }
 
-bool Note::IsImportant() const {
+bool Note::isImportant() const {
     return Important;
 }
 
