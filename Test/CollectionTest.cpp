@@ -29,3 +29,16 @@ TEST(CollectionTest, AddAndRemoveNote) {
     EXPECT_EQ(collection->getSize(), 1);
 }
 
+TEST(CollectionTest, UpdateNote) {
+    auto *collection = new Collection("TestCollection", 2);
+    Note *note1 = new Note("Title1", "Text1");
+
+    collection->addNote(*note1);
+    EXPECT_EQ(collection->getSize(), 1);
+
+    collection->updateNote("Title1", "NewTitle1", "NewText1");
+    auto it = std::find_if(collection->getNotes().begin(), collection->getNotes().end(),
+                           [](const Note &n) { return n.getTitle() == "NewTitle1"; });
+    EXPECT_EQ(it->getTitle(), "NewTitle1");
+    EXPECT_EQ(it->getText(), "NewText1");
+}
