@@ -22,10 +22,8 @@ TEST(NoteTest, ModifyNote) {
     EXPECT_EQ(note.getText(), "New Text");
 
     note.lockNote();
-    note.modifyTitle("Another Title");
-    note.modifyText("Another Text");
-    EXPECT_EQ(note.getTitle(), "New Title");
-    EXPECT_EQ(note.getText(), "New Text");
+    EXPECT_THROW(note.modifyTitle("Another Title"), std::runtime_error);
+    EXPECT_THROW(note.modifyTitle("Another Text"), std::runtime_error);
 
     note.unlockNote();
     note.modifyText("Another Text");

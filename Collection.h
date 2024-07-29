@@ -42,11 +42,11 @@ public:
 
     virtual void readNotes();
 
-    void addNote(const Note &note);
+    bool addNote(const Note &note);
 
-    void removeNote(const Note &note);
+    bool removeNote(const Note &note);
 
-    void updateNote(const std::string& searchTitle, const std::string& newTitle, const std::string& newText);
+    bool updateNote(const std::string& searchTitle, const std::string& newTitle, const std::string& newText);
 
 private:
     std::string CollectionName;

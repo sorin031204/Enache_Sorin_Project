@@ -23,37 +23,47 @@ void Collection::notifyObservers() {
         observer->Update();
 }
 
-void Collection::addNote(const Note &note) {
+bool Collection::addNote(const Note &note) {
     if (Size < Dimension) {
         Notes.push_back(note);
         Size++;
-    }
-    notifyObservers();
-}
-
-void Collection::removeNote(const Note &note) {
-    auto it = std::find_if(Notes.begin(), Notes.end(),
-                           [&note](const Note &n) { return n.getTitle() == note.getTitle(); });
-    if (it != Notes.end() && !note.isLocked()) {
-        Notes.erase(it);
-        Size--;
         notifyObservers();
+        return true;
+    } else {
+        throw std::runtime_error("Collection is full");
     }
 }
 
-void Collection::updateNote(const std::string& searchTitle, const std::string& newTitle, const std::string& newText) {
-    auto it = std::find_if(Notes.begin(), Notes.end(), [&searchTitle](const Note& n) { return n.getTitle() == searchTitle; });
-    if (it != Notes.end()) {
-        if (!it->isLocked()) {
-            it->modifyTitle(newTitle);
-            it->modifyText(newText);
-            std::cout << "The note with title " << searchTitle << " has been updated." << std::endl;
-        } else {
-            std::cout << "Cannot update a locked note." << std::endl;
+bool Collection::removeNote(const Note &note) {
+    auto it = std::find_if(Notes.begin(), Notes.end(), [&](const Note& n) { return n.getTitle() == note.getTitle(); });
+    if (it != Notes.end()){
+            if (!note.isLocked()) {
+                Notes.erase(it);
+                Size--;
+                notifyObservers();
+                return true;
+            } else{
+                throw std::runtime_error("Cannot remove a locked note.");
+            }
+        }else{
+                throw std::runtime_error("Note not found");
+            }
+}
+
+
+bool Collection::updateNote(const std::string& title, const std::string& newTitle, const std::string& newText) {
+    for (auto it = Notes.begin(); it != Notes.end(); ++it) {
+        if (it->getTitle() == title) {
+            if (!it->isLocked()) {
+                it->modifyTitle(newTitle);
+                it->modifyText(newText);
+                notifyObservers();
+                return true;
+            } else {
+                throw std::runtime_error("Cannot update a locked note.");
+            }
         }
-    } else {
-        std::cout << "Note with title " << searchTitle << " not found." << std::endl;
     }
-    notifyObservers();
+    throw std::runtime_error("Note not found.");
 }
 
