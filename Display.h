@@ -22,7 +22,7 @@ public:
     }
 
     void Update() override {
-        std::cout << "Display: una nota è stata rimossa/aggiunta , il numero di note adesso è:" << collection->getSize()
+        std::cout << "Display: una nota è stata rimossa/aggiunta/modificata , il numero di note adesso è:" << collection->getSize()
                   << std::endl;
     }
 
