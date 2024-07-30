@@ -25,7 +25,7 @@ bool Note::isImportant() const {
     return Important;
 }
 
-void Note::modifyText(const std::string& newText) {
+void Note::modifyText(const std::string &newText) {
     if (!Lock) {
         Text = newText;
     } else {
@@ -33,7 +33,7 @@ void Note::modifyText(const std::string& newText) {
     }
 }
 
-void Note::modifyTitle(const std::string& newTitle) {
+void Note::modifyTitle(const std::string &newTitle) {
     if (!Lock) {
         Title = newTitle;
     } else {

@@ -38,13 +38,13 @@ public:
 
     virtual void readNotes();
 
-    Note* findNoteByTitle(const std::string& title);
+    Note *findNoteByTitle(const std::string &title);
 
     bool addNote(const Note &note);
 
     bool removeNote(const Note &note);
 
-    bool updateNote(const std::string& searchTitle, const std::string& newTitle, const std::string& newText);
+    bool updateNote(const std::string &searchTitle, const std::string &newTitle, const std::string &newText);
 
 private:
     std::string CollectionName;

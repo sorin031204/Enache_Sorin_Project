@@ -27,8 +27,8 @@ TEST(CollectionTest, AddAndRemoveNote) {
 
     EXPECT_THROW(collection->removeNote(*note2), std::runtime_error);
     EXPECT_EQ(collection->getSize(), 1);
-
 }
+
 TEST(CollectionTest, UpdateBlockedNote) {
     Collection collection("Test Collection", 10);
 
@@ -37,12 +37,13 @@ TEST(CollectionTest, UpdateBlockedNote) {
     collection.addNote(note1);
 
     EXPECT_THROW(collection.updateNote("Title1", "NewTitle1", "NewText1"), std::runtime_error);
-    Note* updatedNote = collection.findNoteByTitle("Title1");
+    Note *updatedNote = collection.findNoteByTitle("Title1");
 
     EXPECT_EQ(updatedNote->getTitle(), "Title1");
     EXPECT_EQ(updatedNote->getText(), "Text1");
 }
-TEST(CollectionTest, UpdateNoteNonExistent){
+
+TEST(CollectionTest, UpdateNoteNonExistent) {
     auto *collection = new Collection("TestCollection", 2);
 
     Note *note1 = new Note("Title1", "Text1");
