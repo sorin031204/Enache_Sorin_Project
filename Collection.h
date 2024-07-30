@@ -36,11 +36,9 @@ public:
         return Dimension;
     }
 
-    const std::vector<Note>& getNotes() const{
-        return Notes;
-    }
-
     virtual void readNotes();
+
+    Note* findNoteByTitle(const std::string& title);
 
     bool addNote(const Note &note);
 

@@ -8,19 +8,16 @@
 //Reformat Code  press ⌘Сmd ⌥Opt L.
 
 int main() {
-
-
     Note *nota1 = new Note("title", "text");
     Note *nota2 = new Note("titolo", "testo");
 
     auto *collection = new Collection("CollezioneProva", 2);
     Display count(collection);
-
     collection->addNote(*nota1);
     collection->addNote(*nota2);
 
+    //nota1->lockNote();
     collection->readNotes();
-    nota1->lockNote();
     collection->removeNote(*nota2);
 
     collection->updateNote("title", "newTitle", "newText");
